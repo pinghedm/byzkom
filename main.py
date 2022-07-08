@@ -28,6 +28,8 @@ def main():
     pygame.display.set_caption("minimal program")
     screen = pygame.display.set_mode((700, 500))
     screen.fill((255, 255, 255))
+    text = font.render("Z = Punch, X = Block, C = Kick", True, (0, 0, 0))
+    screen.blit(text, (350, 300))
 
     left_player = Fighter(Heraclius, (50, 150))
     left_player.draw(screen)
@@ -37,6 +39,8 @@ def main():
         for event in pygame.event.get(eventtype=pygame.QUIT):
             game_running = False
         screen.fill((255, 255, 255))  # TODO: dont do this, only redraw the dirty part
+        text = font.render("Z = Punch, X = Block, C = Kick", True, (0, 0, 0))
+        screen.blit(text, (300, 300))
         right_player.ai_update_state(left_player)
         right_player.draw(screen)
         left_player.update_state(right_player)
